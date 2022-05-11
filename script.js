@@ -437,86 +437,223 @@ restaurant.orderDelivery({
 
 // Coding Challenge #2
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  }, //6)
-  printGoals: function (...players) {
-    console.log(players);
-    console.log(`${players.length} goals were scorred`);
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   }, //6)
+//   printGoals: function (...players) {
+//     console.log(players);
+//     console.log(`${players.length} goals were scorred`);
+//   },
+// };
 
-// Challenge #2 solutions
+// // Challenge #2 solutions
 
-//  1) My own solution - his sollution is better and easier
-// const players = Object.entries(game.scored);
-// console.log(players);
-// for (const [goal, scorer] of players) {
-//   console.log(`Goal ${goal}: ${scorer}`);
-// }
-// 1) His solution
-for (const [i, player] of game.scored.entries())
-  console.log(`Goal ${i + 1}: ${player}`);
+// //  1) My own solution - his sollution is better and easier
+// // const players = Object.entries(game.scored);
+// // console.log(players);
+// // for (const [goal, scorer] of players) {
+// //   console.log(`Goal ${goal}: ${scorer}`);
+// // }
+// // 1) His solution
+// for (const [i, player] of game.scored.entries())
+//   console.log(`Goal ${i + 1}: ${player}`);
 
-//  2) Using google my solution - mine is better and easier
-let average = 0;
-for (let key in game.odds) {
-  average += game.odds[key];
-}
-// console.log(average / 3);
-//  2) Instructors solution
+// //  2) Using google my solution - mine is better and easier
 // let average = 0;
-// for (const odd of Object.values(game.odds)) average += odd;
-// average /= Object.values(game.odds).length;
-// console.log(average);
-// 3)MY WAY COMPLETELY WRONG
-// console.log(`Odd of victory ${game.team1}: ${game.odds.team1}`);
-// console.log(`Odd of victory ${game.team2}: ${game.odds.team2}`);
-// console.log(`Odd of victory draw: ${game.odds.x}`);
-// 3) Instructors solution
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(team, odd);
+// for (let key in game.odds) {
+//   average += game.odds[key];
+// }
+// // console.log(average / 3);
+// //  2) Instructors solution
+// // let average = 0;
+// // for (const odd of Object.values(game.odds)) average += odd;
+// // average /= Object.values(game.odds).length;
+// // console.log(average);
+// // 3)MY WAY COMPLETELY WRONG
+// // console.log(`Odd of victory ${game.team1}: ${game.odds.team1}`);
+// // console.log(`Odd of victory ${game.team2}: ${game.odds.team2}`);
+// // console.log(`Odd of victory draw: ${game.odds.x}`);
+// // 3) Instructors solution
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(team, odd);
+// }
+// // 4) SOLUTION FROM THE FINAL CODE COULDNT RESOLVE IT
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log(scorers);
+
+// SETS
+// sET IS A COLLECTION OF UNIQUE VALUES - SET CAN NEVER HAVE A DUPLICATE
+
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+
+// console.log(ordersSet);
+
+// console.log(new Set());
+// //  Examples
+// console.log(ordersSet.size); //It shows the size of the set but only the unique values
+// console.log(ordersSet.has('Pizza')); // IT shows if an ellement is part of the set
+// console.log(ordersSet.has('Bread')); // IT shows if an ellement is part of the set
+// ordersSet.add('Garlic Bread'); // IT adds elements in the set
+// console.log(ordersSet);
+// ordersSet.delete('Risotto'); // IT deletes elements in the set
+// // ordersSet.clear(); It deletes all of the elements in the set
+// console.log(ordersSet);
+
+// // Looping
+// for (const order of ordersSet) console.log(order);
+// //The big use case of a set is to remove the duplicates from an array
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffSet = [...new Set(staff)];
+// console.log(staffSet);
+// console.log(new Set(staffSet).size);
+// console.log(new Set('darkoilievski').size);
+// // Sets are not intended to replace arrays, use them just to check the duplicates and getting their size
+
+// MAPS FUNDAMENTALS
+// A MAP IS A DATA STRUCTURE TO MAP VALUES TO KEYS
+
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano'); // Adding new elements to the data structure
+// rest.set(1, 'Firenze Italy');
+// rest.set(2, 'Lisbon Portugal');
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open :D')
+//   .set(false, 'We are closed');
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+
+// // Usefull feature with Map .get, just to show the power
+// const time = 8;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// // Check if Map contains ceratin key .has
+// console.log(rest.has('categories'));
+// // Delete
+// rest.delete(2);
+// console.log(rest);
+// // Size property
+// console.log(rest.size);
+// // Delete all elements
+// rest.clear();
+
+// // Example use arrays or objects as map keys
+// console.log(rest.set([1, 2], 'Test'));
+// console.log(rest.get([1, 2])); // This doesnt work
+
+// rest.set(document.querySelector('h1'), 'Heading'); // Just a possibility
+
+// // Another way instead of the set method to add values to a MAP
+// const question = new Map([
+//   ['Question', 'What is the best programming langugage in the world'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'Javascript'],
+//   ['correct', 3],
+//   [true, 'Correct :)'],
+//   [false, 'Try again'],
+// ]);
+// console.log(question);
+
+// // An easy way to convert object to map (keep this nice little trick)
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
+
+// // Loop for Quiz App
+// console.log(question.get('Question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+// // const answer = Number(prompt('Your answer'));
+// // if (answer === 3) {
+// //   console.log(alert('Correct :)'));
+// // } else {
+// //   console.log(alert('Try again'));
+// // }
+
+// // Convertin map back to an array (not used very often)
+// console.log([...question]);
+// // console.log(...question.entries());
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
+
+// Challenge #3
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, 'Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+// 1) Done by myself
+console.log(...new Set([gameEvents.values()]));
+//  2)
+console.log(gameEvents.delete(64, 'Yellow Card'));
+// 3)
+const time = 90;
+console.log(`An event happend, on average, every ${time / 10} minutes`);
+
+for (const [key, value] of gameEvents) {
+  if (key <= 45) {
+    console.log(`[FIRST HALF]${key}: ${value}`);
+  } else {
+    console.log(`[SECOND HALF]${key}: ${value}`);
+  }
 }
-// 4) SOLUTION FROM THE FINAL CODE COULDNT RESOLVE IT
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
-console.log(scorers);
