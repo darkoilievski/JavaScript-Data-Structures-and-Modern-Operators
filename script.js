@@ -627,33 +627,226 @@ restaurant.orderDelivery({
 // console.log([...question.keys()]);
 // console.log([...question.values()]);
 
-// Challenge #3
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, 'Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// // Challenge #3
+// const gameEvents = new Map([
+//   [17, '⚽ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, 'Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽ GOAL'],
+//   [80, '⚽ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-// 1) Done by myself
-console.log(...new Set([gameEvents.values()]));
-//  2)
-console.log(gameEvents.delete(64, 'Yellow Card'));
-// 3)
-const time = 90;
-console.log(`An event happend, on average, every ${time / 10} minutes`);
+// // 1) Done by myself
+// console.log(...new Set([gameEvents.values()]));
+// //  2)
+// console.log(gameEvents.delete(64, 'Yellow Card'));
+// // 3)
+// const time = 90;
+// console.log(`An event happend, on average, every ${time / 10} minutes`);
 
-for (const [key, value] of gameEvents) {
-  if (key <= 45) {
-    console.log(`[FIRST HALF]${key}: ${value}`);
-  } else {
-    console.log(`[SECOND HALF]${key}: ${value}`);
+// for (const [key, value] of gameEvents) {
+//   if (key <= 45) {
+//     console.log(`[FIRST HALF]${key}: ${value}`);
+//   } else {
+//     console.log(`[SECOND HALF]${key}: ${value}`);
+//   }
+// }
+
+/* STRINGS - USEFULL TOPICS
+//
+//
+*/
+
+// const airline = 'Tap Air Portugal';
+// const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// // We can also do the same directly in the console.log
+// console.log('B737'[0]);
+// // Check the lenght
+// console.log('B737'.length);
+// console.log(airline.length);
+// // How to select specific values in the string
+// console.log(airline.indexOf('r'));
+// // How to select the last value of the string for example the letter 'r'
+// console.log(airline.lastIndexOf('r'));
+
+// // Example and why are they useluf
+// // Slice method
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// // Extract the string without knowing the index(value)
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// // Extracting the last word without knowing the index(value)
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// // Define a negative begin argument
+// console.log(airline.slice(-5));
+// console.log(airline.slice(1, -1));
+
+// // Practics
+// const checkMiddleSeat = function (seat) {
+//   // B and E are middle seats
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'C') console.log(`You got the middle seat :)`);
+//   else console.log(`You got Lucky!`);
+// };
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+// // Lower and Uppercase
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+// Fix capitalizaton in name
+// const passenger = 'DaRKo'; //it should be 'Darko'
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+
+// // Check user input email (comparing)
+// const email = 'hello@jonas.io';
+// const loginEmail = '   Hello@Jonas.Io \n';
+// // The emails are the same but now lets trim down the extra spaces characters in the second
+// const lowerEmail = loginEmail.toLowerCase();
+// // The trim method old way
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+// // The same trim method used in a newer way
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+// console.log(email === normalizedEmail);
+
+// // Replacing parts of stgins
+
+// const priceGB = '288,97&'; // Couldnt find the pound symbol
+// const priceUS = priceGB.replace('$', '&').replace(',', '.');
+// console.log(priceUS);
+
+// // PRactice using .replaceAll
+// const announcement =
+//   'All passengers come to boarding door 23. Boarding door 23!';
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// // Booleans
+// // Includes
+// const plane = 'Airbus A320neo';
+// console.log(plane.includes('A320'));
+// console.log(plane.includes('Boeing'));
+// // Starts with
+// console.log(plane.startsWith('A')); //True
+// console.log(plane.startsWith('A3')); //True
+// console.log(plane.startsWith('A32')); //True
+// console.log(plane.startsWith('Boeing')); //True
+
+// // End with
+// if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('Part of the NEW Airbus Family');
+// }
+
+// // Practice exercise
+// const checkBaggage = function (items) {
+//   // Whenever a user inputs data in the fileds its a good option to switch to lowercae
+//   // so you can check/compare because it is case sensitive
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log(`You are not allowed on board`);
+//   } else {
+//     console.log(`Welcome aboard!`);
+//   }
+// };
+// checkBaggage('I have a laptop, some Food and pocket Knife');
+// checkBaggage('I have some socks and camera');
+// checkBaggage('Got some snacks and a gun for protection');
+
+// SPLIT IS ONE OF THE MOST POWERFUL STRING METHODS
+// console.log('a+very+nice+string'.split('+'));
+// // Used a lot
+// console.log('Darko Ilievski'.split(' '));
+// const [firstNAme, lastName] = 'Darko Ilievski'.split(' ');
+// // Join method
+// const newName = ['Mr.', firstNAme, lastName.toUpperCase()].join(' ');
+// console.log(newName);
+// // To capitalize a name
+
+// const capitalizeName = function (name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
+//   for (const word of names) {
+//     // namesUpper.push(word[0].toUpperCase() + word.slice(1));
+//     namesUpper.push(word[0].toUpperCase() + word.slice(1)); // Both work i did the second myself
+//   }
+//   console.log(namesUpper.join(' '));
+// };
+
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('darko ilievski');
+// capitalizeName('tanja budjakovska ilievska');
+
+// // Padding a string means to add a number of characters to the string until the string has a desired lenght
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+')); // It will add +++ up to 25 char total
+// console.log('Darko'.padStart(25, '+')); // The same lenght as the above
+// // Pad end adding characters to the end of the string
+// console.log(message.padEnd(25, '+'));
+
+// // real word example of padding with credit cards
+// const maskCreditCard = function (number) {
+//   // First convert the number to a string
+//   const str = number + '';
+//   // Than target only the last 4 digits
+//   const last = str.slice(-4);
+//   // Than return it and pad from start for the full length adding * except for the 4 digits
+//   return last.padStart(str.length, '*');
+// };
+
+// console.log(maskCreditCard(4337512578567894));
+// console.log(maskCreditCard(23456789));
+// console.log(maskCreditCard('123564587958658787'));
+
+// // Repeat method - repeat the same string multiple times
+// const message2 = 'Bad weatner... All Departures Delayed... ';
+// console.log(message2.repeat(5));
+
+// const planesInLIne = function (n) {
+//   console.log(`There are ${n} planes in line ${':)'.repeat(n)}`);
+// };
+
+// planesInLIne(5);
+// planesInLIne(3);
+// planesInLIne(12);
+
+// Challenge #4
+/*
+underscore_case
+  first_name
+Some_Variable
+  calculate_AGE
+delayed_departure
+*/
+document.body.append(document.createElement('textarea'));
+
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${'%'.repeat(i + 1)}`);
   }
-}
+});
